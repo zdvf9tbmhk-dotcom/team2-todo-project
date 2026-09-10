@@ -1,0 +1,40 @@
+name: Project task
+description: Задача команды 2
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Ответственный
+      placeholder: Ткачев / Михалев / Поляков
+    validations:
+      required: true
+  - type: input
+    id: due
+    attributes:
+      label: Срок
+      placeholder: YYYY-MM-DD
+  - type: dropdown
+    id: status
+    attributes:
+      label: Состояние
+      options:
+        - Новая
+        - Запланирована
+        - В работе
+        - На проверке
+        - Готово
+    validations:
+      required: true
+  - type: dropdown
+    id: progress
+    attributes:
+      label: Прогресс
+      options: ["0%", "25%", "50%", "75%", "100%"]
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Результат / критерии приёмки
+    validations:
+      required: true

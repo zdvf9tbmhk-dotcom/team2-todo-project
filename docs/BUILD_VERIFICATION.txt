@@ -1,0 +1,32 @@
+Verification record
+Updated: 2026-09-10
+
+A. Local CMake/CTest verification
+Commands:
+  cmake -S . -B build-core -G Ninja -DTODO_BUILD_GUI=OFF -DCMAKE_BUILD_TYPE=Release
+  cmake --build build-core --parallel 2
+  ctest --test-dir build-core --output-on-failure
+
+Result:
+  CMake configure: PASSED
+  todo_core build: PASSED
+  todo_tests build: PASSED
+  Automatic CTest during normal build via target check ALL: PASSED
+  Explicit CTest: PASSED
+  100% tests passed, 0 tests failed out of 8 registered CTest tests.
+
+B. Full Qt/CMake verification in GitHub Actions
+Repository: https://github.com/zdvf9tbmhk-dotcom/team2-todo-project
+Branch: project/complete-implementation
+Commit: 0bd1dcba8e353a57def8c6d68e9fece5ce1edb71
+Workflow run: https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/actions/runs/34454695339
+Runner: ubuntu-24.04
+Qt package: qt6-base-dev
+
+GitHub Actions job build-test: SUCCESS
+  Install toolchain and Qt: SUCCESS
+  Configure: SUCCESS
+  Build (tests run automatically): SUCCESS
+  CTest report: SUCCESS
+
+Thus the full Qt target compiled successfully in CI and the test stage succeeded. An interactive GUI smoke-test still requires a graphical desktop/session and is tracked separately.
