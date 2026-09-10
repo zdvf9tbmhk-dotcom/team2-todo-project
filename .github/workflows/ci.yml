@@ -1,0 +1,27 @@
+name: CMake CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install toolchain and Qt
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake ninja-build qt6-base-dev
+
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build (tests run automatically)
+        run: cmake --build build --parallel 2
+
+      - name: CTest report
+        if: always()
+        run: ctest --test-dir build --output-on-failure

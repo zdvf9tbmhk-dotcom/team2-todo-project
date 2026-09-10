@@ -1,0 +1,37 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+      - "2222:22"
+    volumes:
+      - gitea_data:/data
+
+  openproject:
+    image: openproject/openproject:latest
+    restart: unless-stopped
+    environment:
+      OPENPROJECT_HOST__NAME: "localhost:8080"
+      OPENPROJECT_HTTPS: "false"
+      OPENPROJECT_SECRET_KEY_BASE: "change-me-before-deployment"
+    ports:
+      - "8080:80"
+    volumes:
+      - openproject_pgdata:/var/openproject/pgdata
+      - openproject_assets:/var/openproject/assets
+
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+volumes:
+  gitea_data:
+  openproject_pgdata:
+  openproject_assets:
+  jenkins_home:

@@ -1,0 +1,10 @@
+/build/
+/cmake-build-*/
+/.idea/
+/.vscode/
+*.user
+*.autosave
+*.pro.user
+cached_tasks.json
+tasks.json
+.DS_Store
