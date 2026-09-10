@@ -1,0 +1,36 @@
+Verification performed in the ChatGPT build container
+Date: 2026-09-09
+
+Commands:
+  cmake -S . -B build-core -G Ninja -DTODO_BUILD_GUI=OFF -DCMAKE_BUILD_TYPE=Release
+  cmake --build build-core --parallel 2
+  ctest --test-dir build-core --output-on-failure
+
+Result:
+  CMake configure: PASSED
+  todo_core build: PASSED
+  todo_tests build: PASSED
+  Automatic CTest during build: PASSED
+  Explicit CTest: PASSED
+  100% tests passed, 0 tests failed out of 8 registered CTest tests.
+
+Registered tests:
+  todo_add_and_trim
+  todo_reject_blank
+  todo_toggle
+  todo_edit
+  todo_delete
+  todo_search_and_status_filter
+  todo_overdue
+  todo_replace_all_continues_ids
+
+Environment:
+  CMake 3.31.6
+  GNU C++ 14.2.0
+  Ninja 1.12.1
+
+Limitation:
+  Qt development packages are not installed in this build container and package network access
+  is unavailable. Therefore the Qt GUI target cannot be truthfully claimed as compiled here.
+  Full Qt build is configured in Dockerfile / GitHub Actions / Jenkinsfile and must be verified
+  on a machine or CI runner with Qt 6 available.
