@@ -1,0 +1,18 @@
+ID,Task,Assignee,Status,Progress,Due_date,GitHub_issue,Evidence
+PM-01,Подготовить ТЗ и перечень пяти фич,Ткачев,Готово,100,2026-09-10,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/1,docs/TECHNICAL_SPECIFICATION.md
+PM-02,Подобрать трекер и Kanban,Ткачев,Готово,100,2026-09-11,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/2,docs/TRACKER_SETUP.md
+PM-03,Подготовить пакет согласования преподавателю,Ткачев,Готово,100,2026-09-11,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/3,docs/APPROVAL_PROTOCOL.md
+PM-04,Получить фактическое согласование преподавателя,Ткачев,Ожидает внешнего действия,0,2026-09-11,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/13,Ответ преподавателя
+DEV-01,Провести аудит исходного кода,Поляков Даниил Андреевич,Готово,100,2026-09-10,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/4,docs/AUDIT_LOG.md
+DEV-02,Добавить CMake и разделить core/UI,Поляков Даниил Андреевич,Готово,100,2026-09-11,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/5,CMakeLists.txt
+DEV-03,Реализовать редактирование и удаление,Поляков Даниил Андреевич,Готово,100,2026-09-12,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/6,src + tests
+DEV-04,Реализовать приоритеты и дедлайны,Поляков Даниил Андреевич,Готово,100,2026-09-13,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/7,src + tests
+DEV-05,Реализовать поиск и фильтр,Поляков Даниил Андреевич,Готово,100,2026-09-13,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/8,src + tests
+DEV-06,Написать unit tests,Поляков Даниил Андреевич,Готово,100,2026-09-14,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/9,tests/test_main.cpp
+OPS-01,Подготовить OpenProject/Gitea/Jenkins compose,Михалев,Готово как конфигурация,100,2026-09-11,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/10,infra/docker-compose.yml
+OPS-02,Настроить CI build+tests,Михалев,Готово,100,2026-09-14,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/11,GitHub Actions run 34454695339
+OPS-03,Развернуть сервисы на выделенном сервере,Михалев,Ожидает внешнего доступа,0,2026-09-12,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/14,Нужны VM/учётные данные кафедры
+OPS-04,Создать участников во внешнем трекере,Михалев,Ожидает развертывания трекера,0,2026-09-12,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/15,Нужны OpenProject и реальные учётные данные
+QA-01,Автоматическая проверка core/tests,Поляков + Михалев,Готово,100,2026-09-14,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/12,docs/BUILD_VERIFICATION.txt
+QA-02,Полная Qt GUI сборка и ручной smoke-test,Вся команда,Qt build success / ручной smoke ожидается,75,2026-09-15,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/16,GitHub Actions run 34454695339 + docs/TEST_PLAN.md
+PM-05,Контроль качества и сдача преподавателю,Ткачев,Запланирована,25,2026-09-16,https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/issues/17,docs/DELIVERY_SCENARIO.md

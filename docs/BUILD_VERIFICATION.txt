@@ -1,6 +1,7 @@
-Verification performed in the ChatGPT build container
-Date: 2026-09-09
+Verification record
+Updated: 2026-09-10
 
+A. Local CMake/CTest verification
 Commands:
   cmake -S . -B build-core -G Ninja -DTODO_BUILD_GUI=OFF -DCMAKE_BUILD_TYPE=Release
   cmake --build build-core --parallel 2
@@ -10,27 +11,22 @@ Result:
   CMake configure: PASSED
   todo_core build: PASSED
   todo_tests build: PASSED
-  Automatic CTest during build: PASSED
+  Automatic CTest during normal build via target check ALL: PASSED
   Explicit CTest: PASSED
   100% tests passed, 0 tests failed out of 8 registered CTest tests.
 
-Registered tests:
-  todo_add_and_trim
-  todo_reject_blank
-  todo_toggle
-  todo_edit
-  todo_delete
-  todo_search_and_status_filter
-  todo_overdue
-  todo_replace_all_continues_ids
+B. Full Qt/CMake verification in GitHub Actions
+Repository: https://github.com/zdvf9tbmhk-dotcom/team2-todo-project
+Branch: project/complete-implementation
+Commit: 0bd1dcba8e353a57def8c6d68e9fece5ce1edb71
+Workflow run: https://github.com/zdvf9tbmhk-dotcom/team2-todo-project/actions/runs/34454695339
+Runner: ubuntu-24.04
+Qt package: qt6-base-dev
 
-Environment:
-  CMake 3.31.6
-  GNU C++ 14.2.0
-  Ninja 1.12.1
+GitHub Actions job build-test: SUCCESS
+  Install toolchain and Qt: SUCCESS
+  Configure: SUCCESS
+  Build (tests run automatically): SUCCESS
+  CTest report: SUCCESS
 
-Limitation:
-  Qt development packages are not installed in this build container and package network access
-  is unavailable. Therefore the Qt GUI target cannot be truthfully claimed as compiled here.
-  Full Qt build is configured in Dockerfile / GitHub Actions / Jenkinsfile and must be verified
-  on a machine or CI runner with Qt 6 available.
+Thus the full Qt target compiled successfully in CI and the test stage succeeded. An interactive GUI smoke-test still requires a graphical desktop/session and is tracked separately.
